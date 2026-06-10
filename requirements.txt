@@ -1,0 +1,6 @@
+kagglehub
+Pillow
+matplotlib
+torch
+torchvision
+ipykernel
