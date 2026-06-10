@@ -37,7 +37,7 @@ def get_balanced_dataset_paths(split_dir):
     target_ld_count = target_fake_count // 2
     target_sd_count = target_fake_count - target_ld_count
     
-    # Randomly sample
+    # Randomly sample safely
     sampled_ld = random.sample(ld_paths, min(target_ld_count, len(ld_paths)))
     sampled_sd = random.sample(sd_paths, min(target_sd_count, len(sd_paths)))
     
@@ -50,7 +50,6 @@ def get_balanced_dataset_paths(split_dir):
 class ArtDataset(Dataset):
     """
     Custom PyTorch Dataset that loads images from a list of paths.
-    This avoids having to physically move/copy 120,000 files on your disk.
     """
     def __init__(self, file_paths_labels, transform=None):
         self.file_paths_labels = file_paths_labels
@@ -61,11 +60,15 @@ class ArtDataset(Dataset):
         
     def __getitem__(self, idx):
         img_path, label = self.file_paths_labels[idx]
-        # Ensure image is RGB (some might be grayscale)
-        image = Image.open(img_path).convert('RGB')
-        if self.transform:
-            image = self.transform(image)
-        return image, label
+        try:
+            image = Image.open(img_path).convert('RGB')
+            if self.transform:
+                image = self.transform(image)
+            return image, label
+        except Exception as e:
+            # Fallback for corrupted images if any exist in dataset
+            placeholder = torch.zeros(3, 224, 224)
+            return placeholder, label
 
 class SimpleCNN(nn.Module):
     def __init__(self):
@@ -86,7 +89,7 @@ class SimpleCNN(nn.Module):
             nn.Linear(64 * 28 * 28, 128),
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(128, 2) # 2 classes: 0 (Real) vs 1 (Fake)
+            nn.Linear(128, 2)
         )
         
     def forward(self, x):
@@ -95,15 +98,20 @@ class SimpleCNN(nn.Module):
         return x
 
 def main():
+    # --- CONFIGURATION HYPERPARAMETERS ---
+    BATCH_SIZE = 256          # Increased to maximize RTX 5070 performance
+    NUM_WORKERS = 8         # Multi-threaded background data loading
+    MAX_TRAIN_SAMPLES = 10000 # Subsample limit for faster execution right now
+    MAX_TEST_SAMPLES = 2000   # Subsample limit for testing
+    NUM_EPOCHS = 10
+    # -------------------------------------
+
     print("Downloading/Locating dataset from Kaggle...")
-    # This downloads the dataset to cache if it doesn't exist, or returns the cached path
     dataset_path = kagglehub.dataset_download("ravidussilva/real-ai-art")
     print(f"Dataset path: {dataset_path}")
     
-    # Locate train and test folders in the downloaded dataset
     train_dir = None
     test_dir = None
-    
     for root, dirs, files in os.walk(dataset_path):
         if 'train' in dirs and train_dir is None:
             train_dir = os.path.join(root, 'train')
@@ -111,15 +119,19 @@ def main():
             test_dir = os.path.join(root, 'test')
             
     if not train_dir or not test_dir:
-        print("Could not find 'train' or 'test' directories in the dataset.")
+        print("Could not find 'train' or 'test' directories.")
         return
 
-    print("\nPreparing balanced dataset paths (50% Real, 50% Fake)...")
+    print("\nPreparing balanced dataset paths...")
     train_paths = get_balanced_dataset_paths(train_dir)
     test_paths = get_balanced_dataset_paths(test_dir)
     
-    print(f"Train size: {len(train_paths)} (Real vs Fake: 50/50)")
-    print(f"Test size:  {len(test_paths)} (Real vs Fake: 50/50)")
+    # Apply subsampling limits for speed
+    train_paths = train_paths[:MAX_TRAIN_SAMPLES]
+    test_paths = test_paths[:MAX_TEST_SAMPLES]
+    
+    print(f"Subsampled Train size: {len(train_paths)}")
+    print(f"Subsampled Test size:  {len(test_paths)}")
     
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
@@ -130,9 +142,8 @@ def main():
     train_dataset = ArtDataset(train_paths, transform=transform)
     test_dataset = ArtDataset(test_paths, transform=transform)
     
-    # Set num_workers=0 to prevent multiprocessing issues on Windows when running scripts
-    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=0, pin_memory=True)
-    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=0, pin_memory=True)
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS, pin_memory=True)
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS, pin_memory=True)
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"\nUsing device: {device}")
@@ -141,18 +152,17 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     
-    num_epochs = 100
-    # Store history here
     history = {'train_acc': [], 'test_acc': [], 'train_loss': []}
     
     print("\nStarting training...")
-    for epoch in range(num_epochs):
+    for epoch in range(NUM_EPOCHS):
         model.train()
         running_loss = 0.0
         correct_train = 0
         total_train = 0
         
-        for inputs, labels in train_loader:
+        total_batches = len(train_loader)
+        for batch_idx, (inputs, labels) in enumerate(train_loader):
             inputs, labels = inputs.to(device), labels.to(device)
             
             optimizer.zero_grad()
@@ -166,10 +176,14 @@ def main():
             total_train += labels.size(0)
             correct_train += (predicted == labels).sum().item()
             
+            # Print batch progress every 10 steps
+            if (batch_idx + 1) % 10 == 0 or (batch_idx + 1) == total_batches:
+                print(f"  Epoch [{epoch+1}/{NUM_EPOCHS}] | Batch [{batch_idx+1}/{total_batches}] Processing...")
+            
         epoch_loss = running_loss / len(train_dataset)
         train_acc = correct_train / total_train * 100
         
-        # Validation pass
+        # Validation Pass
         model.eval()
         correct_test = 0
         total_test = 0
@@ -183,29 +197,25 @@ def main():
                 
         test_acc = correct_test / total_test * 100
         
-        # Save metrics to history
         history['train_loss'].append(epoch_loss)
         history['train_acc'].append(train_acc)
         history['test_acc'].append(test_acc)
         
-        print(f"Epoch [{epoch+1}/{num_epochs}] - Loss: {epoch_loss:.4f}, Train Acc: {train_acc:.2f}%, Test Acc: {test_acc:.2f}%")
+        print(f">> Epoch [{epoch+1}/{NUM_EPOCHS}] Finished - Loss: {epoch_loss:.4f}, Train Acc: {train_acc:.2f}%, Test Acc: {test_acc:.2f}%\n")
         
-    print("\nTraining finished. Saving history plot...")
+    print("Training finished. Saving history plot...")
     
-    # Create the plot
     plt.figure(figsize=(10, 6))
-    plt.plot(range(1, num_epochs + 1), history['train_acc'], label='Train Accuracy', color='blue')
-    plt.plot(range(1, num_epochs + 1), history['test_acc'], label='Test Accuracy', color='orange')
+    plt.plot(range(1, NUM_EPOCHS + 1), history['train_acc'], label='Train Accuracy', color='blue')
+    plt.plot(range(1, NUM_EPOCHS + 1), history['test_acc'], label='Test Accuracy', color='orange')
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy (%)')
     plt.title('Accuracy vs Epochs')
     plt.legend()
     plt.grid(True)
     
-    # Save instead of show
     plot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'training_history.png')
     plt.savefig(plot_path, dpi=300, bbox_inches='tight')
-    
     print(f"Saved plot to {plot_path}")
 
 if __name__ == "__main__":
