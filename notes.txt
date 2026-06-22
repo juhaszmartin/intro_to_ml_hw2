@@ -1,0 +1,45 @@
+1. CORE CODE, LOGS, AND NOTEBOOKS
+These are the files that drive the project, store dependencies, and record the training data.
+
+- runner.py: The main master Python script containing the final pipeline with all data loaders, model architectures, and the 5-run training loop.
+- training_execution.log: The master text log containing the complete console output of your training runs, including per-epoch loss, training accuracy, and detailed sub-category test accuracies (Real, LD, SD).
+- requirements.txt: The dependencies file listing the Python packages (like torch, torchvision, kagglehub, matplotlib, seaborn) required to run the project.
+- pipeline.ipynb & test.ipynb: Jupyter Notebook files likely used as scratchpads for initial data exploration, testing snippets, or drafting code before moving it to the main runner.py script.
+
+--------------------------------------------------
+
+2. FINAL MASTER PIPELINE OUTPUTS (20-EPOCH RUNS)
+These are the generated artifacts from the final, 5-stage experimental run comparing clean data, augmented data, and transfer learning.
+
+Run 1: SimpleCNN Clean
+- simplecnn_clean_history.png: Line chart showing training vs. validation accuracy over 20 epochs for the basic CNN on unaugmented data.
+- simplecnn_clean_confusion_matrix.png: Heatmap showing True Positives/Negatives vs. False Positives/Negatives for this run.
+- simplecnn_clean_gradcam.png: Visual explainability overlay showing where the basic CNN looked to make its prediction.
+
+Run 2: SimpleCNN Augmented
+- simplecnn_augmented_history.png: Accuracy line chart for the basic CNN trained with flips, rotations, and Gaussian noise.
+- simplecnn_augmented_confusion_matrix.png: Heatmap of the predictions for the augmented basic CNN.
+- simplecnn_augmented_gradcam.png: Explainability overlay for the augmented basic CNN.
+
+Run 3: DeeperCNN Clean
+- deepercnn_clean_history.png: Accuracy line chart for the custom residual network on unaugmented data.
+- deepercnn_clean_confusion_matrix.png: Heatmap of the predictions for the clean DeeperCNN.
+- deepercnn_clean_gradcam.png: Explainability overlay for the clean DeeperCNN.
+
+Run 4: DeeperCNN Augmented
+- deepercnn_augmented_history.png: Accuracy line chart showing how the deeper residual network handled the augmented data.
+- deepercnn_augmented_confusion_matrix.png: Heatmap of the predictions for the augmented DeeperCNN.
+- deepercnn_augmented_gradcam.png: Explainability overlay for the augmented DeeperCNN.
+
+Run 5: ResNet50 Transfer Learning
+- resnet50_transfer_learning_history.png: Accuracy line chart for the pre-trained model (trained on clean data).
+- resnet50_transfer_learning_confusion_matrix.png: Heatmap of the predictions for the ResNet50 model.
+- resnet50_transfer_learning_gradcam.png: Explainability overlay showing the advanced feature maps of the ResNet50 model.
+
+--------------------------------------------------
+
+3. LEGACY/PREVIOUS RUN OUTPUTS (SHORTER RUNS)
+These files are from your earlier testing phases (the 8/10 epoch runs) before the script was updated to separate clean vs. augmented data.
+
+- simplecnn_baseline_history.png, _confusion_matrix.png, _gradcam.png: The outputs from your very first successful run of the SimpleCNN.
+- deeper_custom_cnn_history.png, _confusion_matrix.png, _gradcam.png: The outputs from your first test of the advanced custom architecture with residual blocks.

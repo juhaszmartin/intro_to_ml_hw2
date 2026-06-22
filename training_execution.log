@@ -1,0 +1,140 @@
+2026-06-21 23:39:39,807 [INFO] Downloading/Locating dataset from Kaggle...
+2026-06-21 23:39:40,578 [INFO] Assembling exact 50/50 splits...
+2026-06-21 23:39:41,187 [INFO] Using device: cuda
+2026-06-21 23:39:41,219 [INFO] 
+========================================
+STARTING TRAINING: SimpleCNN Clean
+========================================
+2026-06-21 23:40:25,759 [INFO] Epoch [1/20] - Loss: 0.5511 | Train Acc: 72.6% | Test Acc: 78.5% (Real: 67.1%, LD: 87.2%, SD: 92.6%)
+2026-06-21 23:41:05,160 [INFO] Epoch [2/20] - Loss: 0.4033 | Train Acc: 80.5% | Test Acc: 81.8% (Real: 77.1%, LD: 81.2%, SD: 91.8%)
+2026-06-21 23:41:44,109 [INFO] Epoch [3/20] - Loss: 0.3408 | Train Acc: 84.6% | Test Acc: 85.4% (Real: 86.4%, LD: 77.2%, SD: 91.6%)
+2026-06-21 23:42:23,225 [INFO] Epoch [4/20] - Loss: 0.2972 | Train Acc: 87.4% | Test Acc: 86.6% (Real: 85.9%, LD: 81.8%, SD: 92.6%)
+2026-06-21 23:43:01,788 [INFO] Epoch [5/20] - Loss: 0.2453 | Train Acc: 89.9% | Test Acc: 85.7% (Real: 90.3%, LD: 72.0%, SD: 90.0%)
+2026-06-21 23:43:40,769 [INFO] Epoch [6/20] - Loss: 0.2152 | Train Acc: 91.2% | Test Acc: 88.6% (Real: 86.5%, LD: 84.6%, SD: 96.8%)
+2026-06-21 23:44:20,086 [INFO] Epoch [7/20] - Loss: 0.1752 | Train Acc: 93.0% | Test Acc: 88.0% (Real: 90.1%, LD: 79.2%, SD: 92.8%)
+2026-06-21 23:44:59,108 [INFO] Epoch [8/20] - Loss: 0.1239 | Train Acc: 95.4% | Test Acc: 88.0% (Real: 87.8%, LD: 81.0%, SD: 95.6%)
+2026-06-21 23:45:38,596 [INFO] Epoch [9/20] - Loss: 0.0873 | Train Acc: 96.9% | Test Acc: 88.9% (Real: 86.7%, LD: 86.0%, SD: 96.4%)
+2026-06-21 23:46:17,916 [INFO] Epoch [10/20] - Loss: 0.0642 | Train Acc: 98.0% | Test Acc: 88.5% (Real: 89.2%, LD: 81.2%, SD: 94.6%)
+2026-06-21 23:46:57,136 [INFO] Epoch [11/20] - Loss: 0.0483 | Train Acc: 98.4% | Test Acc: 88.4% (Real: 89.3%, LD: 80.8%, SD: 94.4%)
+2026-06-21 23:47:36,403 [INFO] Epoch [12/20] - Loss: 0.0410 | Train Acc: 98.7% | Test Acc: 88.8% (Real: 87.9%, LD: 84.0%, SD: 95.6%)
+2026-06-21 23:48:15,715 [INFO] Epoch [13/20] - Loss: 0.0308 | Train Acc: 99.2% | Test Acc: 88.8% (Real: 90.0%, LD: 81.0%, SD: 94.2%)
+2026-06-21 23:48:55,176 [INFO] Epoch [14/20] - Loss: 0.0297 | Train Acc: 99.2% | Test Acc: 88.5% (Real: 89.4%, LD: 80.8%, SD: 94.6%)
+2026-06-21 23:49:34,388 [INFO] Epoch [15/20] - Loss: 0.0237 | Train Acc: 99.3% | Test Acc: 88.9% (Real: 89.0%, LD: 82.8%, SD: 95.0%)
+2026-06-21 23:50:14,154 [INFO] Epoch [16/20] - Loss: 0.0252 | Train Acc: 99.2% | Test Acc: 88.5% (Real: 89.3%, LD: 81.0%, SD: 94.4%)
+2026-06-21 23:50:53,651 [INFO] Epoch [17/20] - Loss: 0.0226 | Train Acc: 99.5% | Test Acc: 88.5% (Real: 89.3%, LD: 81.0%, SD: 94.4%)
+2026-06-21 23:51:33,051 [INFO] Epoch [18/20] - Loss: 0.0198 | Train Acc: 99.5% | Test Acc: 88.2% (Real: 89.8%, LD: 79.6%, SD: 93.6%)
+2026-06-21 23:52:12,461 [INFO] Epoch [19/20] - Loss: 0.0206 | Train Acc: 99.5% | Test Acc: 88.6% (Real: 89.4%, LD: 81.0%, SD: 94.8%)
+2026-06-21 23:52:51,775 [INFO] Epoch [20/20] - Loss: 0.0208 | Train Acc: 99.4% | Test Acc: 88.4% (Real: 89.5%, LD: 80.6%, SD: 94.2%)
+2026-06-21 23:53:07,589 [INFO] Successfully saved Grad-CAM plot to: simplecnn_clean_gradcam.png
+2026-06-21 23:53:08,691 [INFO] Finished evaluation execution for SimpleCNN Clean.
+
+2026-06-21 23:53:08,719 [INFO] 
+========================================
+STARTING TRAINING: SimpleCNN Augmented
+========================================
+2026-06-21 23:53:51,186 [INFO] Epoch [1/20] - Loss: 0.5677 | Train Acc: 70.5% | Test Acc: 77.2% (Real: 86.8%, LD: 57.0%, SD: 78.4%)
+2026-06-21 23:54:33,224 [INFO] Epoch [2/20] - Loss: 0.4076 | Train Acc: 81.2% | Test Acc: 84.7% (Real: 79.5%, LD: 85.6%, SD: 94.0%)
+2026-06-21 23:55:15,419 [INFO] Epoch [3/20] - Loss: 0.3419 | Train Acc: 84.5% | Test Acc: 87.0% (Real: 86.2%, LD: 83.8%, SD: 91.6%)
+2026-06-21 23:55:57,469 [INFO] Epoch [4/20] - Loss: 0.3071 | Train Acc: 86.6% | Test Acc: 87.8% (Real: 85.5%, LD: 86.6%, SD: 93.4%)
+2026-06-21 23:56:39,502 [INFO] Epoch [5/20] - Loss: 0.2846 | Train Acc: 87.8% | Test Acc: 87.2% (Real: 82.5%, LD: 89.0%, SD: 94.6%)
+2026-06-21 23:57:21,756 [INFO] Epoch [6/20] - Loss: 0.2618 | Train Acc: 88.8% | Test Acc: 87.6% (Real: 81.8%, LD: 91.2%, SD: 95.8%)
+2026-06-21 23:58:03,897 [INFO] Epoch [7/20] - Loss: 0.2345 | Train Acc: 90.1% | Test Acc: 89.6% (Real: 91.7%, LD: 81.0%, SD: 94.0%)
+2026-06-21 23:58:45,674 [INFO] Epoch [8/20] - Loss: 0.2186 | Train Acc: 91.2% | Test Acc: 88.8% (Real: 90.0%, LD: 83.0%, SD: 92.4%)
+2026-06-21 23:59:27,364 [INFO] Epoch [9/20] - Loss: 0.2023 | Train Acc: 91.8% | Test Acc: 88.9% (Real: 91.6%, LD: 81.2%, SD: 91.4%)
+2026-06-22 00:00:09,201 [INFO] Epoch [10/20] - Loss: 0.1747 | Train Acc: 93.0% | Test Acc: 90.3% (Real: 91.1%, LD: 85.8%, SD: 93.4%)
+2026-06-22 00:00:51,301 [INFO] Epoch [11/20] - Loss: 0.1729 | Train Acc: 93.3% | Test Acc: 90.1% (Real: 91.8%, LD: 82.8%, SD: 94.2%)
+2026-06-22 00:01:33,614 [INFO] Epoch [12/20] - Loss: 0.1524 | Train Acc: 93.6% | Test Acc: 90.5% (Real: 86.6%, LD: 92.0%, SD: 97.0%)
+2026-06-22 00:02:15,947 [INFO] Epoch [13/20] - Loss: 0.1340 | Train Acc: 94.7% | Test Acc: 91.5% (Real: 90.1%, LD: 89.8%, SD: 95.8%)
+2026-06-22 00:02:57,872 [INFO] Epoch [14/20] - Loss: 0.1292 | Train Acc: 95.2% | Test Acc: 91.4% (Real: 91.7%, LD: 87.4%, SD: 94.8%)
+2026-06-22 00:03:39,812 [INFO] Epoch [15/20] - Loss: 0.1247 | Train Acc: 95.1% | Test Acc: 90.6% (Real: 92.5%, LD: 83.4%, SD: 94.0%)
+2026-06-22 00:04:21,415 [INFO] Epoch [16/20] - Loss: 0.1130 | Train Acc: 95.6% | Test Acc: 90.8% (Real: 93.1%, LD: 83.6%, SD: 93.6%)
+2026-06-22 00:05:03,277 [INFO] Epoch [17/20] - Loss: 0.1116 | Train Acc: 95.7% | Test Acc: 91.1% (Real: 91.8%, LD: 87.0%, SD: 93.8%)
+2026-06-22 00:05:44,990 [INFO] Epoch [18/20] - Loss: 0.1031 | Train Acc: 96.1% | Test Acc: 91.5% (Real: 91.8%, LD: 87.2%, SD: 95.0%)
+2026-06-22 00:06:26,856 [INFO] Epoch [19/20] - Loss: 0.1015 | Train Acc: 96.1% | Test Acc: 91.0% (Real: 91.7%, LD: 86.4%, SD: 94.0%)
+2026-06-22 00:07:08,623 [INFO] Epoch [20/20] - Loss: 0.0983 | Train Acc: 96.3% | Test Acc: 91.9% (Real: 91.0%, LD: 89.6%, SD: 96.0%)
+2026-06-22 00:07:23,865 [INFO] Successfully saved Grad-CAM plot to: simplecnn_augmented_gradcam.png
+2026-06-22 00:07:25,212 [INFO] Finished evaluation execution for SimpleCNN Augmented.
+
+2026-06-22 00:07:25,221 [INFO] 
+========================================
+STARTING TRAINING: DeeperCNN Clean
+========================================
+2026-06-22 00:12:49,248 [INFO] Epoch [1/20] - Loss: 0.4683 | Train Acc: 77.8% | Test Acc: 77.4% (Real: 61.5%, LD: 92.8%, SD: 93.8%)
+2026-06-22 00:18:13,477 [INFO] Epoch [2/20] - Loss: 0.3847 | Train Acc: 82.6% | Test Acc: 83.8% (Real: 90.1%, LD: 70.6%, SD: 84.2%)
+2026-06-22 00:23:37,413 [INFO] Epoch [3/20] - Loss: 0.3303 | Train Acc: 85.3% | Test Acc: 86.5% (Real: 85.9%, LD: 80.8%, SD: 93.4%)
+2026-06-22 00:29:02,437 [INFO] Epoch [4/20] - Loss: 0.3017 | Train Acc: 87.2% | Test Acc: 83.8% (Real: 96.1%, LD: 61.8%, SD: 81.2%)
+2026-06-22 00:34:27,006 [INFO] Epoch [5/20] - Loss: 0.2761 | Train Acc: 87.8% | Test Acc: 89.6% (Real: 89.6%, LD: 84.4%, SD: 95.0%)
+2026-06-22 00:39:50,826 [INFO] Epoch [6/20] - Loss: 0.2697 | Train Acc: 88.0% | Test Acc: 85.0% (Real: 94.1%, LD: 70.6%, SD: 81.4%)
+2026-06-22 00:45:15,886 [INFO] Epoch [7/20] - Loss: 0.2394 | Train Acc: 90.0% | Test Acc: 88.0% (Real: 83.3%, LD: 89.0%, SD: 96.4%)
+2026-06-22 00:50:40,457 [INFO] Epoch [8/20] - Loss: 0.1987 | Train Acc: 92.2% | Test Acc: 91.7% (Real: 90.9%, LD: 88.4%, SD: 96.6%)
+2026-06-22 00:56:04,407 [INFO] Epoch [9/20] - Loss: 0.1829 | Train Acc: 93.0% | Test Acc: 91.2% (Real: 85.2%, LD: 96.6%, SD: 97.8%)
+2026-06-22 01:01:29,466 [INFO] Epoch [10/20] - Loss: 0.1765 | Train Acc: 93.0% | Test Acc: 81.5% (Real: 64.6%, LD: 97.6%, SD: 99.0%)
+2026-06-22 01:06:53,638 [INFO] Epoch [11/20] - Loss: 0.1611 | Train Acc: 93.6% | Test Acc: 93.3% (Real: 93.2%, LD: 90.8%, SD: 96.0%)
+2026-06-22 01:12:17,263 [INFO] Epoch [12/20] - Loss: 0.1363 | Train Acc: 94.5% | Test Acc: 93.4% (Real: 96.1%, LD: 89.4%, SD: 92.0%)
+2026-06-22 01:17:42,043 [INFO] Epoch [13/20] - Loss: 0.1419 | Train Acc: 94.5% | Test Acc: 94.2% (Real: 94.1%, LD: 91.6%, SD: 97.2%)
+2026-06-22 01:23:06,074 [INFO] Epoch [14/20] - Loss: 0.1269 | Train Acc: 95.0% | Test Acc: 93.2% (Real: 96.5%, LD: 88.2%, SD: 91.6%)
+2026-06-22 01:28:29,823 [INFO] Epoch [15/20] - Loss: 0.1199 | Train Acc: 95.5% | Test Acc: 91.3% (Real: 96.0%, LD: 80.4%, SD: 92.8%)
+2026-06-22 01:33:55,173 [INFO] Epoch [16/20] - Loss: 0.1086 | Train Acc: 96.1% | Test Acc: 94.2% (Real: 95.5%, LD: 91.4%, SD: 94.4%)
+2026-06-22 01:39:19,453 [INFO] Epoch [17/20] - Loss: 0.1001 | Train Acc: 96.6% | Test Acc: 94.6% (Real: 94.2%, LD: 95.0%, SD: 95.0%)
+2026-06-22 01:44:43,706 [INFO] Epoch [18/20] - Loss: 0.0941 | Train Acc: 96.6% | Test Acc: 87.1% (Real: 98.3%, LD: 72.0%, SD: 79.8%)
+2026-06-22 01:50:09,155 [INFO] Epoch [19/20] - Loss: 0.1015 | Train Acc: 96.1% | Test Acc: 94.7% (Real: 93.9%, LD: 94.8%, SD: 96.0%)
+2026-06-22 01:55:33,535 [INFO] Epoch [20/20] - Loss: 0.0781 | Train Acc: 97.1% | Test Acc: 95.5% (Real: 95.1%, LD: 95.2%, SD: 96.6%)
+2026-06-22 01:55:48,900 [INFO] Successfully saved Grad-CAM plot to: deepercnn_clean_gradcam.png
+2026-06-22 01:55:50,247 [INFO] Finished evaluation execution for DeeperCNN Clean.
+
+2026-06-22 01:55:50,256 [INFO] 
+========================================
+STARTING TRAINING: DeeperCNN Augmented
+========================================
+2026-06-22 02:01:14,530 [INFO] Epoch [1/20] - Loss: 0.4682 | Train Acc: 78.1% | Test Acc: 73.6% (Real: 49.8%, LD: 97.0%, SD: 97.8%)
+2026-06-22 02:06:39,925 [INFO] Epoch [2/20] - Loss: 0.3948 | Train Acc: 81.7% | Test Acc: 82.0% (Real: 71.6%, LD: 90.0%, SD: 94.8%)
+2026-06-22 02:12:04,145 [INFO] Epoch [3/20] - Loss: 0.3671 | Train Acc: 83.3% | Test Acc: 83.0% (Real: 88.1%, LD: 70.0%, SD: 85.6%)
+2026-06-22 02:17:28,708 [INFO] Epoch [4/20] - Loss: 0.3395 | Train Acc: 85.3% | Test Acc: 84.2% (Real: 87.4%, LD: 71.8%, SD: 90.0%)
+2026-06-22 02:22:53,916 [INFO] Epoch [5/20] - Loss: 0.3372 | Train Acc: 85.1% | Test Acc: 83.2% (Real: 91.3%, LD: 68.0%, SD: 82.2%)
+2026-06-22 02:28:18,099 [INFO] Epoch [6/20] - Loss: 0.3050 | Train Acc: 86.5% | Test Acc: 85.5% (Real: 78.9%, LD: 87.8%, SD: 96.4%)
+2026-06-22 02:33:42,493 [INFO] Epoch [7/20] - Loss: 0.2887 | Train Acc: 87.5% | Test Acc: 87.1% (Real: 88.6%, LD: 79.6%, SD: 91.4%)
+2026-06-22 02:39:07,857 [INFO] Epoch [8/20] - Loss: 0.2772 | Train Acc: 88.4% | Test Acc: 88.2% (Real: 86.6%, LD: 85.4%, SD: 94.4%)
+2026-06-22 02:44:32,508 [INFO] Epoch [9/20] - Loss: 0.2618 | Train Acc: 88.9% | Test Acc: 88.8% (Real: 90.1%, LD: 80.6%, SD: 94.4%)
+2026-06-22 02:49:56,957 [INFO] Epoch [10/20] - Loss: 0.2539 | Train Acc: 89.4% | Test Acc: 87.5% (Real: 95.1%, LD: 71.0%, SD: 88.6%)
+2026-06-22 02:55:22,486 [INFO] Epoch [11/20] - Loss: 0.2383 | Train Acc: 90.5% | Test Acc: 90.6% (Real: 88.8%, LD: 88.2%, SD: 96.8%)
+2026-06-22 03:00:47,307 [INFO] Epoch [12/20] - Loss: 0.2319 | Train Acc: 90.4% | Test Acc: 89.5% (Real: 92.8%, LD: 81.8%, SD: 90.8%)
+2026-06-22 03:06:11,589 [INFO] Epoch [13/20] - Loss: 0.2325 | Train Acc: 90.2% | Test Acc: 90.6% (Real: 89.5%, LD: 87.8%, SD: 95.8%)
+2026-06-22 03:11:37,833 [INFO] Epoch [14/20] - Loss: 0.2212 | Train Acc: 90.9% | Test Acc: 90.0% (Real: 95.2%, LD: 77.6%, SD: 92.0%)
+2026-06-22 03:17:02,016 [INFO] Epoch [15/20] - Loss: 0.2167 | Train Acc: 91.1% | Test Acc: 86.1% (Real: 95.3%, LD: 71.8%, SD: 81.8%)
+2026-06-22 03:22:26,090 [INFO] Epoch [16/20] - Loss: 0.2032 | Train Acc: 91.7% | Test Acc: 82.0% (Real: 98.4%, LD: 61.0%, SD: 70.4%)
+2026-06-22 03:27:51,883 [INFO] Epoch [17/20] - Loss: 0.1866 | Train Acc: 92.5% | Test Acc: 90.4% (Real: 95.7%, LD: 79.4%, SD: 90.8%)
+2026-06-22 03:33:16,295 [INFO] Epoch [18/20] - Loss: 0.1674 | Train Acc: 93.4% | Test Acc: 92.2% (Real: 91.6%, LD: 89.6%, SD: 96.0%)
+2026-06-22 03:38:40,446 [INFO] Epoch [19/20] - Loss: 0.1628 | Train Acc: 93.6% | Test Acc: 85.9% (Real: 98.9%, LD: 68.2%, SD: 77.4%)
+2026-06-22 03:44:05,899 [INFO] Epoch [20/20] - Loss: 0.1606 | Train Acc: 94.0% | Test Acc: 92.8% (Real: 93.8%, LD: 90.0%, SD: 93.6%)
+2026-06-22 03:44:21,717 [INFO] Successfully saved Grad-CAM plot to: deepercnn_augmented_gradcam.png
+2026-06-22 03:44:23,002 [INFO] Finished evaluation execution for DeeperCNN Augmented.
+
+2026-06-22 03:44:23,375 [INFO] 
+========================================
+STARTING TRAINING: ResNet50 Transfer Learning
+========================================
+2026-06-22 03:45:14,792 [INFO] Epoch [1/20] - Loss: 0.2714 | Train Acc: 88.9% | Test Acc: 95.6% (Real: 93.6%, LD: 96.6%, SD: 98.6%)
+2026-06-22 03:46:06,399 [INFO] Epoch [2/20] - Loss: 0.1200 | Train Acc: 95.7% | Test Acc: 97.3% (Real: 97.1%, LD: 95.8%, SD: 99.2%)
+2026-06-22 03:46:57,963 [INFO] Epoch [3/20] - Loss: 0.0753 | Train Acc: 97.4% | Test Acc: 97.2% (Real: 96.1%, LD: 97.2%, SD: 99.6%)
+2026-06-22 03:47:49,465 [INFO] Epoch [4/20] - Loss: 0.0555 | Train Acc: 98.2% | Test Acc: 97.8% (Real: 97.3%, LD: 97.4%, SD: 99.0%)
+2026-06-22 03:48:40,696 [INFO] Epoch [5/20] - Loss: 0.0472 | Train Acc: 98.4% | Test Acc: 98.0% (Real: 98.1%, LD: 96.6%, SD: 99.2%)
+2026-06-22 03:49:31,941 [INFO] Epoch [6/20] - Loss: 0.0380 | Train Acc: 98.8% | Test Acc: 97.8% (Real: 97.1%, LD: 97.4%, SD: 99.6%)
+2026-06-22 03:50:23,206 [INFO] Epoch [7/20] - Loss: 0.0315 | Train Acc: 99.0% | Test Acc: 98.0% (Real: 98.6%, LD: 96.0%, SD: 98.8%)
+2026-06-22 03:51:14,722 [INFO] Epoch [8/20] - Loss: 0.0321 | Train Acc: 99.2% | Test Acc: 98.0% (Real: 98.3%, LD: 96.6%, SD: 98.6%)
+2026-06-22 03:52:06,173 [INFO] Epoch [9/20] - Loss: 0.0227 | Train Acc: 99.3% | Test Acc: 98.0% (Real: 97.4%, LD: 97.4%, SD: 99.6%)
+2026-06-22 03:52:57,368 [INFO] Epoch [10/20] - Loss: 0.0206 | Train Acc: 99.4% | Test Acc: 98.0% (Real: 99.3%, LD: 95.6%, SD: 98.0%)
+2026-06-22 03:53:49,007 [INFO] Epoch [11/20] - Loss: 0.0219 | Train Acc: 99.3% | Test Acc: 98.4% (Real: 99.2%, LD: 96.4%, SD: 98.6%)
+2026-06-22 03:54:40,363 [INFO] Epoch [12/20] - Loss: 0.0146 | Train Acc: 99.6% | Test Acc: 98.5% (Real: 98.2%, LD: 98.0%, SD: 99.4%)
+2026-06-22 03:55:31,988 [INFO] Epoch [13/20] - Loss: 0.0117 | Train Acc: 99.7% | Test Acc: 97.7% (Real: 96.6%, LD: 98.0%, SD: 99.6%)
+2026-06-22 03:56:22,940 [INFO] Epoch [14/20] - Loss: 0.0120 | Train Acc: 99.6% | Test Acc: 98.0% (Real: 98.5%, LD: 96.4%, SD: 98.6%)
+2026-06-22 03:57:14,564 [INFO] Epoch [15/20] - Loss: 0.0109 | Train Acc: 99.8% | Test Acc: 98.2% (Real: 97.7%, LD: 98.0%, SD: 99.2%)
+2026-06-22 03:58:06,301 [INFO] Epoch [16/20] - Loss: 0.0089 | Train Acc: 99.8% | Test Acc: 98.4% (Real: 98.2%, LD: 97.8%, SD: 99.2%)
+2026-06-22 03:58:57,763 [INFO] Epoch [17/20] - Loss: 0.0089 | Train Acc: 99.9% | Test Acc: 98.1% (Real: 98.2%, LD: 96.6%, SD: 99.4%)
+2026-06-22 03:59:49,379 [INFO] Epoch [18/20] - Loss: 0.0079 | Train Acc: 99.9% | Test Acc: 98.2% (Real: 98.4%, LD: 96.4%, SD: 99.4%)
+2026-06-22 04:00:40,992 [INFO] Epoch [19/20] - Loss: 0.0079 | Train Acc: 99.9% | Test Acc: 98.0% (Real: 98.2%, LD: 97.0%, SD: 98.8%)
+2026-06-22 04:01:32,162 [INFO] Epoch [20/20] - Loss: 0.0076 | Train Acc: 99.9% | Test Acc: 98.4% (Real: 98.3%, LD: 97.6%, SD: 99.2%)
+2026-06-22 04:01:47,818 [INFO] Successfully saved Grad-CAM plot to: resnet50_transfer_learning_gradcam.png
+2026-06-22 04:01:49,035 [INFO] Finished evaluation execution for ResNet50 Transfer Learning.
+
+2026-06-22 04:01:49,036 [INFO] 
+All 5 Training Runs Complete!
